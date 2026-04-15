@@ -55,7 +55,7 @@
       padding: 80px 5% 40px; position: relative; overflow: hidden;
     }
     #hero::before {
-      content: ''; position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0; pointer-events: none;
       background-image: linear-gradient(rgba(88,166,255,.05) 1px, transparent 1px),
                         linear-gradient(90deg, rgba(88,166,255,.05) 1px, transparent 1px);
       background-size: 48px 48px;
@@ -261,7 +261,6 @@
           <span class="terminal-title">analyst_profile.json</span>
         </div>
         <div class="terminal-body">
-          <span class="t-comment">// Srivatchan D &mdash; Data Analyst</span><br>
           {<br>
           &nbsp;&nbsp;<span class="t-key">"role"</span>: <span class="t-str">"Data Analyst (Fresher)"</span>,<br>
           &nbsp;&nbsp;<span class="t-key">"location"</span>: <span class="t-str">"Chennai, India"</span>,<br>
@@ -298,7 +297,6 @@
           <div class="detail-row"><span class="detail-icon">&#127979;</span><span class="detail-label">Degree</span><span>B.E. Electronics &amp; Communication Eng.</span></div>
           <div class="detail-row"><span class="detail-icon">&#128197;</span><span class="detail-label">Grad Year</span><span>2026 (Final Year)</span></div>
           <div class="detail-row"><span class="detail-icon">&#128231;</span><span class="detail-label">Email</span><a href="mailto:srivatchandivya95@gmail.com">srivatchandivya95@gmail.com</a></div>
-          <div class="detail-row"><span class="detail-icon">&#128222;</span><span class="detail-label">Phone</span><span>+91-8072387440</span></div>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:1rem;">
@@ -657,9 +655,6 @@
       </a>
       <a class="contact-link" href="https://github.com/srivatchan2004" target="_blank">
         <span class="link-icon">&#128025;</span><span>GitHub Profile</span>
-      </a>
-      <a class="contact-link" href="tel:+918072387440">
-        <span class="link-icon">&#128222;</span><span>+91-8072387440</span>
       </a>
     </div>
     <div style="text-align:center;margin-top:2.5rem;">
