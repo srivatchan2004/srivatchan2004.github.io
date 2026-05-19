@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../new.png" />
+  <title>Meta Ads Marketing Dashboard | Srivatchan D</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --bg:#0d1117; --bg2:#161b22; --bg3:#1c2333; --border:#30363d;
+      --accent:#58a6ff; --green:#3fb950; --red:#f85149; --purple:#bc8cff;
+      --orange:#ffa657; --cyan:#39d353; --text:#e6edf3; --muted:#8b949e; --radius:12px;
+      --meta:#1877F2;
+    }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    ::-webkit-scrollbar{width:6px} ::-webkit-scrollbar-track{background:var(--bg)} ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+    /* HEADER */
+    header {
+      background:var(--bg2); border-bottom:1px solid var(--border);
+      padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+    }
+    .header-left h1 { font-size:1.4rem; font-weight:800; display:flex; align-items:center; gap:.6rem; }
+    .header-left h1 span { background:linear-gradient(135deg,#1877F2,#42b883); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .header-left p { font-size:.82rem; color:var(--muted); margin-top:.2rem; font-family:'JetBrains Mono',monospace; }
+    .meta-logo { background:#1877F2; color:#fff; font-weight:800; font-size:.85rem; padding:.25rem .6rem; border-radius:6px; }
+    .header-right { display:flex; align-items:center; gap:1rem; }
+    .live-badge { display:flex; align-items:center; gap:.4rem; background:rgba(24,119,242,.12); border:1px solid rgba(24,119,242,.4); color:#58a6ff; font-size:.78rem; font-weight:600; padding:.3rem .75rem; border-radius:20px; }
+    .live-badge::before { content:''; width:7px; height:7px; border-radius:50%; background:#1877F2; animation:pulse 1.8s infinite; }
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .back-btn { background:transparent; border:1px solid var(--border); color:var(--muted); padding:.4rem 1rem; border-radius:8px; font-size:.85rem; cursor:pointer; text-decoration:none; transition:all .2s; }
+    .back-btn:hover { border-color:var(--accent); color:var(--accent); }
+
+    main { max-width:1400px; margin:0 auto; padding:2rem; }
+    .section-title { font-size:1rem; font-weight:700; color:var(--accent); font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.08em; margin-bottom:1rem; }
+
+    /* DATA QUALITY */
+    .dq-banner { background:var(--bg2); border:1px solid var(--border); border-left:4px solid #1877F2; border-radius:var(--radius); padding:1.2rem 1.5rem; margin-bottom:2rem; }
+    .dq-banner h3 { font-size:.95rem; color:#58a6ff; margin-bottom:.75rem; }
+    .dq-steps { display:flex; flex-wrap:wrap; gap:.6rem; }
+    .dq-step { background:rgba(88,166,255,.07); border:1px solid rgba(88,166,255,.2); color:var(--muted); font-size:.78rem; padding:.3rem .7rem; border-radius:6px; font-family:'JetBrains Mono',monospace; }
+    .dq-step span { color:var(--accent); font-weight:600; }
+
+    /* KPI CARDS */
+    .kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1rem; margin-bottom:2rem; }
+    .kpi-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; transition:border-color .2s,transform .2s; position:relative; overflow:hidden; }
+    .kpi-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+    .kpi-blue::before { background:linear-gradient(90deg,var(--accent),#1877F2); }
+    .kpi-green::before { background:linear-gradient(90deg,var(--green),#39d353); }
+    .kpi-purple::before { background:linear-gradient(90deg,var(--purple),#ff79c6); }
+    .kpi-orange::before { background:linear-gradient(90deg,var(--orange),#ff6b6b); }
+    .kpi-card:hover { border-color:var(--accent); transform:translateY(-3px); }
+    .kpi-label { font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.4rem; }
+    .kpi-value { font-size:1.75rem; font-weight:800; line-height:1; }
+    .kpi-sub { font-size:.72rem; color:var(--muted); margin-top:.35rem; }
+    .kpi-blue .kpi-value { color:var(--accent); }
+    .kpi-green .kpi-value { color:var(--green); }
+    .kpi-purple .kpi-value { color:var(--purple); }
+    .kpi-orange .kpi-value { color:var(--orange); }
+    .kpi-red .kpi-value { color:var(--red); }
+    .kpi-red::before { background:linear-gradient(90deg,var(--red),#ff9f9f); }
+    .kpi-cyan .kpi-value { color:#79c0ff; }
+    .kpi-cyan::before { background:linear-gradient(90deg,#79c0ff,var(--green)); }
+
+    /* CHARTS */
+    .charts-row { display:grid; gap:1.5rem; margin-bottom:1.5rem; }
+    .charts-2col { grid-template-columns:3fr 2fr; }
+    .charts-2equal { grid-template-columns:1fr 1fr; }
+    .charts-3col { grid-template-columns:1fr 1fr 1fr; }
+    .chart-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; }
+    .chart-card h3 { font-size:.9rem; font-weight:700; margin-bottom:.25rem; }
+    .chart-card .chart-sub { font-size:.75rem; color:var(--muted); margin-bottom:1rem; }
+    .roas-benchmark { display:flex; align-items:center; gap:.5rem; margin-bottom:.75rem; }
+    .roas-benchmark span { font-size:.75rem; color:var(--muted); }
+    .roas-good { color:var(--green); font-weight:600; }
+    .roas-warn { color:var(--orange); font-weight:600; }
+
+    /* FUNNEL */
+    .funnel { display:flex; flex-direction:column; gap:.5rem; padding:.5rem 0; }
+    .funnel-step { display:flex; align-items:center; gap:1rem; }
+    .funnel-bar-wrap { flex:1; }
+    .funnel-bar { height:28px; border-radius:4px; display:flex; align-items:center; padding:0 .75rem; font-size:.78rem; font-weight:600; color:#fff; transition:width .8s ease; }
+    .funnel-label { width:110px; font-size:.78rem; color:var(--muted); text-align:right; flex-shrink:0; }
+    .funnel-val { width:70px; font-size:.78rem; font-weight:700; flex-shrink:0; }
+
+    /* INSIGHTS */
+    .insights-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem; }
+    .insight-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem; }
+    .insight-card h4 { font-size:.85rem; font-weight:700; margin-bottom:.6rem; }
+    .insight-list { list-style:none; display:flex; flex-direction:column; gap:.45rem; }
+    .insight-list li { font-size:.83rem; color:var(--muted); display:flex; align-items:flex-start; gap:.5rem; line-height:1.5; }
+    .insight-list li::before { content:'▹'; color:var(--accent); flex-shrink:0; margin-top:.1rem; }
+    .ins-pos { border-left:3px solid var(--green); }
+    .ins-neg { border-left:3px solid var(--red); }
+    .ins-tip { border-left:3px solid var(--accent); }
+    .ins-warn { border-left:3px solid var(--orange); }
+
+    /* TABLE */
+    .table-wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:.82rem; }
+    thead th { background:var(--bg3); color:var(--muted); font-weight:600; text-align:left; padding:.7rem 1rem; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; border-bottom:1px solid var(--border); }
+    tbody tr { border-bottom:1px solid var(--border); transition:background .15s; }
+    tbody tr:hover { background:var(--bg3); }
+    tbody td { padding:.65rem 1rem; color:var(--text); }
+    .badge { display:inline-block; padding:.15rem .55rem; border-radius:4px; font-size:.72rem; font-weight:600; }
+    .badge-green { background:rgba(63,185,80,.15); color:var(--green); }
+    .badge-red { background:rgba(248,81,73,.15); color:var(--red); }
+    .badge-blue { background:rgba(88,166,255,.12); color:var(--accent); }
+    .badge-orange { background:rgba(255,166,87,.12); color:var(--orange); }
+
+    footer { text-align:center; padding:2rem; border-top:1px solid var(--border); color:var(--muted); font-size:.82rem; }
+    footer a { color:var(--accent); text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+
+    .messy { color:var(--red); font-style:italic; }
+    .sample-table-wrap { overflow-x:auto; margin-top:.75rem; }
+    .sample-table-wrap table { font-size:.75rem; }
+
+    @media(max-width:900px){
+      .charts-2col,.charts-2equal,.charts-3col { grid-template-columns:1fr; }
+      .insights-grid { grid-template-columns:1fr; }
+      main { padding:1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1><span class="meta-logo">f</span> <span>Meta Ads Marketing Dashboard</span></h1>
+    <p>NovaTech Solutions Pvt. Ltd. &nbsp;|&nbsp; Chennai &nbsp;|&nbsp; Jan – Dec 2024 &nbsp;|&nbsp; 6 Campaigns</p>
+  </div>
+  <div class="header-right">
+    <span class="live-badge">Live Analysis</span>
+    <a class="back-btn" href="https://srivatchan2004.github.io">&#8592; Portfolio</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- DATA QUALITY -->
+  <div class="dq-banner">
+    <h3>&#128295; Data Cleaning Summary — Meta Ads Manager Export → Clean Dataset</h3>
+    <div class="dq-steps">
+      <span class="dq-step">&#9888; <span>11</span> rows with zero impressions removed (paused ad sets)</span>
+      <span class="dq-step">&#128221; <span>4</span> campaigns with duplicate date-ranges merged</span>
+      <span class="dq-step">&#128197; <span>CTR</span> recalculated — 3 rows had formula errors from Ads Manager export</span>
+      <span class="dq-step">&#8377; Currency normalised — <span>2</span> rows in USD converted to INR (83.2x)</span>
+      <span class="dq-step">&#128260; ROAS computed from attributed revenue / spend for all rows</span>
+      <span class="dq-step">&#10003; <span>312</span> clean daily rows from 327 raw exported</span>
+    </div>
+  </div>
+
+  <!-- KPI CARDS -->
+  <div class="section-title">// Key Performance Indicators</div>
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-red">
+      <div class="kpi-label">Total Ad Spend</div>
+      <div class="kpi-value" id="kpi-spend">—</div>
+      <div class="kpi-sub">Across 6 campaigns, FY 2024</div>
+    </div>
+    <div class="kpi-card kpi-green">
+      <div class="kpi-label">Attributed Revenue</div>
+      <div class="kpi-value" id="kpi-adrev">—</div>
+      <div class="kpi-sub">From Meta-tracked conversions</div>
+    </div>
+    <div class="kpi-card kpi-blue">
+      <div class="kpi-label">ROAS</div>
+      <div class="kpi-value" id="kpi-roas">—</div>
+      <div class="kpi-sub">Return on Ad Spend (target: 3.5×)</div>
+    </div>
+    <div class="kpi-card kpi-purple">
+      <div class="kpi-label">Total Impressions</div>
+      <div class="kpi-value" id="kpi-imp">—</div>
+      <div class="kpi-sub">Unique reach: 1.1M people</div>
+    </div>
+    <div class="kpi-card kpi-orange">
+      <div class="kpi-label">Avg CTR</div>
+      <div class="kpi-value" id="kpi-ctr">—</div>
+      <div class="kpi-sub">Industry avg: 1.9% (Facebook)</div>
+    </div>
+    <div class="kpi-card kpi-green">
+      <div class="kpi-label">Total Conversions</div>
+      <div class="kpi-value" id="kpi-conv">—</div>
+      <div class="kpi-sub">Avg CPA: ₹228</div>
+    </div>
+    <div class="kpi-card kpi-cyan">
+      <div class="kpi-label">Avg CPC</div>
+      <div class="kpi-value" id="kpi-cpc">—</div>
+      <div class="kpi-sub">Cost per click, all campaigns</div>
+    </div>
+    <div class="kpi-card kpi-blue">
+      <div class="kpi-label">Total Clicks</div>
+      <div class="kpi-value" id="kpi-clicks">—</div>
+      <div class="kpi-sub">Link clicks across all placements</div>
+    </div>
+  </div>
+
+  <!-- CHARTS ROW 1 -->
+  <div class="charts-row charts-2col">
+    <div class="chart-card">
+      <h3>Campaign ROAS Performance</h3>
+      <div class="roas-benchmark">
+        <span>&#9632; <span class="roas-good">≥ 3.5×</span> = Good</span>
+        <span>&#9632; <span class="roas-warn">2–3.5×</span> = Marginal</span>
+        <span>&#9632; <span style="color:var(--red);font-weight:600">&lt; 2×</span> = Loss-making</span>
+      </div>
+      <div class="chart-wrap"><canvas id="roasChart" height="120"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Spend vs Revenue per Campaign</h3>
+      <p class="chart-sub">Bar shows spend; line shows attributed revenue</p>
+      <div class="chart-wrap"><canvas id="spendRevChart" height="160"></canvas></div>
+    </div>
+  </div>
+
+  <!-- CHARTS ROW 2 -->
+  <div class="charts-row charts-3col">
+    <div class="chart-card">
+      <h3>CTR by Campaign</h3>
+      <p class="chart-sub">Retargeting has highest click-through</p>
+      <div class="chart-wrap"><canvas id="ctrChart" height="200"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Audience Type Performance</h3>
+      <p class="chart-sub">CTR % by audience segment</p>
+      <div class="chart-wrap"><canvas id="audienceChart" height="200"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Age Group Breakdown</h3>
+      <p class="chart-sub">25–34 converts best — 42% of orders</p>
+      <div class="chart-wrap"><canvas id="ageChart" height="200"></canvas></div>
+    </div>
+  </div>
+
+  <!-- CHARTS ROW 3 -->
+  <div class="charts-row charts-2equal">
+    <div class="chart-card">
+      <h3>Monthly Spend &amp; Conversions Trend</h3>
+      <p class="chart-sub">Oct–Nov peak aligns with Diwali campaign burst</p>
+      <div class="chart-wrap"><canvas id="trendChart" height="140"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Conversion Funnel</h3>
+      <p class="chart-sub">Impressions → Clicks → Landing → Cart → Purchase</p>
+      <div class="funnel" id="funnelChart">
+        <div class="funnel-step">
+          <div class="funnel-label">Impressions</div>
+          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;background:rgba(88,166,255,0.7);">2,310,000</div></div>
+          <div class="funnel-val" style="color:var(--accent)">2.31M</div>
+        </div>
+        <div class="funnel-step">
+          <div class="funnel-label">Clicks</div>
+          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:2.9%;background:rgba(188,140,255,0.7);">&#8203;</div></div>
+          <div class="funnel-val" style="color:var(--purple)">67,800 <span style="font-size:.65rem;color:var(--muted)">(2.93%)</span></div>
+        </div>
+        <div class="funnel-step">
+          <div class="funnel-label">Landing Page</div>
+          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:2.1%;background:rgba(63,185,80,0.7);">&#8203;</div></div>
+          <div class="funnel-val" style="color:var(--green)">49,200 <span style="font-size:.65rem;color:var(--muted)">(72.6%)</span></div>
+        </div>
+        <div class="funnel-step">
+          <div class="funnel-label">Add to Cart</div>
+          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:.28%;background:rgba(255,166,87,0.7);">&#8203;</div></div>
+          <div class="funnel-val" style="color:var(--orange)">6,580 <span style="font-size:.65rem;color:var(--muted)">(13.4%)</span></div>
+        </div>
+        <div class="funnel-step">
+          <div class="funnel-label">Purchase</div>
+          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:.079%;background:rgba(248,81,73,0.7);">&#8203;</div></div>
+          <div class="funnel-val" style="color:var(--red)">1,840 <span style="font-size:.65rem;color:var(--muted)">(28.0%)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAMPAIGN TABLE -->
+  <div class="chart-card" style="margin-bottom:1.5rem">
+    <h3>Campaign Performance Breakdown</h3>
+    <p class="chart-sub" style="margin-bottom:1rem">All 6 campaigns — FY 2024 summary</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Campaign</th><th>Type</th><th>Period</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Conversions</th><th>Revenue</th><th>ROAS</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Diwali Sale 2024</td><td><span class="badge badge-blue">Conversion</span></td><td>Oct–Nov</td><td>₹85,000</td><td>412K</td><td>15,640</td><td>3.80%</td><td>412</td><td>₹4,20,000</td><td><strong style="color:var(--green)">4.94×</strong></td><td><span class="badge badge-green">Top &#9650;</span></td>
+          </tr>
+          <tr>
+            <td>Electronics Flash Sale</td><td><span class="badge badge-blue">Conversion</span></td><td>Aug</td><td>₹62,000</td><td>298K</td><td>12,220</td><td>4.10%</td><td>287</td><td>₹3,10,000</td><td><strong style="color:var(--green)">5.00×</strong></td><td><span class="badge badge-green">Top &#9650;</span></td>
+          </tr>
+          <tr>
+            <td>Retargeting — Cart</td><td><span class="badge badge-orange">Retarget</span></td><td>Jul–Sep</td><td>₹38,000</td><td>187K</td><td>9,720</td><td>5.20%</td><td>245</td><td>₹2,20,000</td><td><strong style="color:var(--green)">5.79×</strong></td><td><span class="badge badge-green">Best ROAS</span></td>
+          </tr>
+          <tr>
+            <td>Festive Season Mega</td><td><span class="badge badge-blue">Conversion</span></td><td>Nov–Dec</td><td>₹1,12,000</td><td>543K</td><td>19,005</td><td>3.50%</td><td>609</td><td>₹5,40,000</td><td><strong style="color:var(--green)">4.82×</strong></td><td><span class="badge badge-green">High Vol &#9650;</span></td>
+          </tr>
+          <tr>
+            <td>New Customer Acq.</td><td><span class="badge badge-blue">Traffic</span></td><td>Apr–Jun</td><td>₹78,000</td><td>524K</td><td>12,040</td><td>2.30%</td><td>198</td><td>₹2,40,000</td><td><strong style="color:var(--orange)">3.08×</strong></td><td><span class="badge badge-orange">Review</span></td>
+          </tr>
+          <tr>
+            <td>Brand Awareness Q1</td><td><span class="badge" style="background:rgba(188,140,255,.12);color:var(--purple)">Awareness</span></td><td>Jan–Mar</td><td>₹45,000</td><td>346K</td><td>9,175</td><td>1.20%</td><td>89</td><td>₹1,20,000</td><td><strong style="color:var(--red)">2.67×</strong></td><td><span class="badge badge-red">Low ROAS &#9660;</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SAMPLE RAW DATA -->
+  <div class="chart-card" style="margin-bottom:1.5rem">
+    <h3>&#128220; Sample Raw CSV Export (8 of 327 rows) — Issues Highlighted</h3>
+    <p class="chart-sub" style="margin-bottom:.75rem">Red = data quality issues found and fixed before analysis</p>
+    <div class="sample-table-wrap">
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Campaign</th><th>Impressions</th><th>Clicks</th><th>CTR (%)</th><th>Spend (₹)</th><th>Conversions</th><th>Revenue (₹)</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>01/10/2024</td><td>Diwali Sale 2024</td><td>14,820</td><td>562</td><td>3.79</td><td>2,940</td><td>14</td><td>14,280</td><td style="color:var(--green)">&#10003; Clean</td></tr>
+          <tr><td>02/10/2024</td><td>Diwali Sale 2024</td><td class="messy">0</td><td class="messy">0</td><td class="messy">0.00</td><td class="messy">0</td><td>0</td><td>0</td><td class="messy">Paused ad-set — REMOVED</td></tr>
+          <tr><td>03/10/2024</td><td>Electronics Flash Sale</td><td>9,210</td><td>378</td><td class="messy">41.0 ← ERROR</td><td>1,850</td><td>9</td><td>9,180</td><td class="messy">CTR recalculated → 4.10%</td></tr>
+          <tr><td>04/10/2024</td><td>Retargeting — Cart</td><td>6,540</td><td>340</td><td>5.20</td><td>1,220</td><td>8</td><td class="messy">$88.3 USD</td><td class="messy">USD → INR converted (×83.2)</td></tr>
+          <tr><td>05/10/2024</td><td>Festive Season Mega</td><td>18,400</td><td>644</td><td>3.50</td><td>3,720</td><td>19</td><td>19,380</td><td style="color:var(--green)">&#10003; Clean</td></tr>
+          <tr><td>05/10/2024</td><td>Festive Season Mega</td><td class="messy">18,400</td><td class="messy">644</td><td class="messy">3.50</td><td class="messy">3,720</td><td class="messy">19</td><td class="messy">19,380</td><td class="messy">Duplicate row — REMOVED</td></tr>
+          <tr><td>06/10/2024</td><td>Brand Awareness Q1</td><td>11,820</td><td>142</td><td>1.20</td><td>1,530</td><td>3</td><td>4,080</td><td style="color:var(--green)">&#10003; Clean</td></tr>
+          <tr><td>07/10/2024</td><td>New Customer Acq.</td><td>13,450</td><td>309</td><td>2.30</td><td>2,580</td><td>6</td><td>7,920</td><td style="color:var(--green)">&#10003; Clean</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- INSIGHTS -->
+  <div class="section-title">// Key Insights &amp; Recommendations</div>
+  <div class="insights-grid">
+    <div class="insight-card ins-pos">
+      <h4><span style="color:var(--green)">&#9650;</span> High-Performing Strategies</h4>
+      <ul class="insight-list">
+        <li>Retargeting (Cart Abandoners) delivers the best ROAS at 5.79× — every ₹1 spent returns ₹5.79.</li>
+        <li>Electronics Flash Sale has the highest CTR (4.1%) — product-specific urgency campaigns work well.</li>
+        <li>Diwali + Festive campaigns together drove ₹9.6L revenue (52% of total ad revenue).</li>
+        <li>25–34 age group converts 2.3× better than 45+ — primary targeting segment confirmed.</li>
+      </ul>
+    </div>
+    <div class="insight-card ins-neg">
+      <h4><span style="color:var(--red)">&#9660;</span> Under-Performing Areas</h4>
+      <ul class="insight-list">
+        <li>Brand Awareness Q1 ROAS is 2.67× — below the 3.5× break-even target. High impression, low intent.</li>
+        <li>Conversion funnel drops 86.6% at Add-to-Cart stage — pricing or UX friction likely causes cart abandonment.</li>
+        <li>New Customer Acquisition CTR (2.3%) is below platform average (2.9%) — creative needs refresh.</li>
+        <li>45+ age group has the highest CPC (₹89) but lowest conversion rate (0.9%) — consider excluding.</li>
+      </ul>
+    </div>
+    <div class="insight-card ins-tip">
+      <h4><span style="color:var(--accent)">&#128161;</span> Strategic Recommendations</h4>
+      <ul class="insight-list">
+        <li>Reallocate 30% of Brand Awareness budget to Retargeting — highest ROI channel.</li>
+        <li>Launch a Q2 conversion campaign (Apr–Jun) to fill the revenue gap in the weak season.</li>
+        <li>A/B test new creatives for the New Customer Acquisition campaign — aim for CTR above 3%.</li>
+        <li>Fix cart abandonment: add urgency emails + retargeting ads within 24h of cart abandon.</li>
+      </ul>
+    </div>
+    <div class="insight-card ins-warn">
+      <h4><span style="color:var(--orange)">&#9888;</span> Data Quality &amp; Tracking Flags</h4>
+      <ul class="insight-list">
+        <li>3 CTR values were inflated in Ads Manager export (formula bug) — always validate against raw clicks/impressions.</li>
+        <li>2 rows had USD values instead of INR — confirm currency setting in Ads Manager account level.</li>
+        <li>11 paused ad-set rows with zero metrics inflated campaign averages — filter before analysis.</li>
+        <li>Attribution window: data uses 7-day click / 1-day view. Consider testing 1-day click for tighter ROAS accuracy.</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Built by <a href="https://srivatchan2004.github.io">Srivatchan D</a> &nbsp;|&nbsp; Data Analyst &nbsp;|&nbsp; Chennai, India &nbsp;|&nbsp; Freelance Dashboard Design</p>
+  <p style="margin-top:.3rem;font-size:.75rem;">Tools: HTML5 · Chart.js · JavaScript ES6 · Meta Ads Analysis · CSV Cleaning</p>
+</footer>
+
+<script>
+  Chart.defaults.color = '#8b949e';
+  Chart.defaults.font.family = "'Inter', sans-serif";
+  const gridColor = 'rgba(48,54,61,0.6)';
+
+  /* ── KPI DATA ── */
+  const totalSpend = 4.20, totalAdRev = 18.50, roas = 4.40;
+  const impressions = 2.31, ctr = 2.93, conversions = 1840, cpc = 61.9, clicks = 67.8;
+
+  function animateCount(el, target, prefix='', suffix='', decimals=0, duration=1200){
+    const start = Date.now();
+    function frame(){
+      const elapsed = Date.now()-start, p = Math.min(elapsed/duration,1), ease = 1-Math.pow(1-p,3);
+      const val = target*ease;
+      el.textContent = prefix+(decimals>0?val.toFixed(decimals):Math.floor(val))+suffix;
+      if(p<1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  animateCount(document.getElementById('kpi-spend'),    totalSpend,  '₹','L',2);
+  animateCount(document.getElementById('kpi-adrev'),    totalAdRev,  '₹','L',2);
+  animateCount(document.getElementById('kpi-roas'),     roas,        '','×',2);
+  animateCount(document.getElementById('kpi-imp'),      impressions, '','M',2);
+  animateCount(document.getElementById('kpi-ctr'),      ctr,         '','%',2);
+  animateCount(document.getElementById('kpi-conv'),     conversions, '','',0);
+  animateCount(document.getElementById('kpi-cpc'),      cpc,         '₹','',1);
+  animateCount(document.getElementById('kpi-clicks'),   clicks,      '','K',1);
+
+  const campaigns = ['Diwali Sale','Electronics Flash','Retargeting','Festive Mega','New Customers','Brand Awareness'];
+  const campShort = ['Diwali\nSale','Electronics\nFlash','Retargeting\nCart','Festive\nMega','New\nCustomers','Brand\nAwareness'];
+
+  /* ── CHART 1: ROAS Horizontal Bar ── */
+  new Chart(document.getElementById('roasChart'),{
+    type:'bar',
+    data:{
+      labels: campaigns,
+      datasets:[{
+        label:'ROAS (×)',
+        data:[4.94,5.00,5.79,4.82,3.08,2.67],
+        backgroundColor:d=>{
+          const v=[4.94,5.00,5.79,4.82,3.08,2.67];
+          return v.map(x=>x>=3.5?'rgba(63,185,80,0.75)':x>=2?'rgba(255,166,87,0.75)':'rgba(248,81,73,0.75)');
+        },
+        borderRadius:5
+      }]
+    },
+    options:{
+      indexAxis:'y', responsive:true,
+      scales:{
+        x:{ grid:{color:gridColor}, min:0, max:7, ticks:{callback:v=>v+'×'} },
+        y:{ grid:{display:false} }
+      },
+      plugins:{
+        legend:{display:false},
+        annotation:{ annotations:{ line1:{ type:'line', xMin:3.5, xMax:3.5, borderColor:'rgba(255,255,255,0.3)', borderWidth:1, borderDash:[4,4] } } }
+      }
+    }
+  });
+
+  /* ── CHART 2: Spend vs Revenue Grouped Bar ── */
+  new Chart(document.getElementById('spendRevChart'),{
+    type:'bar',
+    data:{
+      labels: campaigns,
+      datasets:[
+        { label:'Spend (₹K)', data:[85,62,38,112,78,45], backgroundColor:'rgba(248,81,73,0.65)', borderRadius:4 },
+        { label:'Revenue (₹K)', data:[420,310,220,540,240,120], backgroundColor:'rgba(63,185,80,0.65)', borderRadius:4 }
+      ]
+    },
+    options:{
+      responsive:true,
+      scales:{
+        y:{ grid:{color:gridColor}, ticks:{callback:v=>'₹'+v+'K'} },
+        x:{ grid:{display:false}, ticks:{maxRotation:30,font:{size:10}} }
+      },
+      plugins:{ legend:{labels:{boxWidth:12}} }
+    }
+  });
+
+  /* ── CHART 3: CTR by Campaign ── */
+  new Chart(document.getElementById('ctrChart'),{
+    type:'bar',
+    data:{
+      labels: campaigns,
+      datasets:[{
+        label:'CTR %',
+        data:[3.80,4.10,5.20,3.50,2.30,1.20],
+        backgroundColor:['#58a6ff','#bc8cff','#3fb950','#ffa657','#79c0ff','#f85149'],
+        borderRadius:5
+      }]
+    },
+    options:{
+      responsive:true,
+      scales:{
+        y:{ grid:{color:gridColor}, ticks:{callback:v=>v+'%'}, max:7 },
+        x:{ grid:{display:false}, ticks:{font:{size:10},maxRotation:30} }
+      },
+      plugins:{ legend:{display:false} }
+    }
+  });
+
+  /* ── CHART 4: Audience CTR ── */
+  new Chart(document.getElementById('audienceChart'),{
+    type:'bar',
+    data:{
+      labels:['Retargeting','Lookalike 2%','Interest-Based','Broad Audience'],
+      datasets:[{
+        label:'CTR %',
+        data:[5.20,3.90,2.10,1.40],
+        backgroundColor:['rgba(63,185,80,0.75)','rgba(88,166,255,0.75)','rgba(188,140,255,0.75)','rgba(255,166,87,0.75)'],
+        borderRadius:6
+      }]
+    },
+    options:{
+      indexAxis:'y', responsive:true,
+      scales:{ x:{grid:{color:gridColor},ticks:{callback:v=>v+'%'},max:7}, y:{grid:{display:false}} },
+      plugins:{ legend:{display:false} }
+    }
+  });
+
+  /* ── CHART 5: Age Doughnut ── */
+  new Chart(document.getElementById('ageChart'),{
+    type:'doughnut',
+    data:{
+      labels:['18–24','25–34','35–44','45+'],
+      datasets:[{ data:[28,42,18,12], backgroundColor:['#58a6ff','#3fb950','#bc8cff','#ffa657'], borderColor:'#161b22', borderWidth:3, hoverOffset:6 }]
+    },
+    options:{ responsive:true, cutout:'62%', plugins:{ legend:{position:'bottom',labels:{padding:10,boxWidth:12}} } }
+  });
+
+  /* ── CHART 6: Monthly Spend + Conversions ── */
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const monthlySpend = [15000,15000,15000,26000,26000,26000,12667,62000,12667,85000,56000,56000];
+  const monthlyConv  = [30,30,29,66,66,66,82,287,81,412,359,250];
+
+  new Chart(document.getElementById('trendChart'),{
+    type:'bar',
+    data:{
+      labels:months,
+      datasets:[
+        { label:'Spend (₹)', data:monthlySpend, backgroundColor:'rgba(248,81,73,0.55)', borderRadius:4, yAxisID:'y' },
+        { label:'Conversions', data:monthlyConv, type:'line', borderColor:'#3fb950', backgroundColor:'rgba(63,185,80,0.1)', tension:.35, fill:true, pointBackgroundColor:'#3fb950', pointRadius:4, yAxisID:'y1' }
+      ]
+    },
+    options:{
+      responsive:true, interaction:{mode:'index',intersect:false},
+      scales:{
+        y:{ grid:{color:gridColor}, ticks:{callback:v=>'₹'+(v/1000).toFixed(0)+'K'}, title:{display:true,text:'Spend (₹)'} },
+        y1:{ position:'right', grid:{display:false}, title:{display:true,text:'Conversions'} }
+      },
+      plugins:{ legend:{labels:{boxWidth:12}} }
+    }
+  });
+</script>
+</body>
+</html>
