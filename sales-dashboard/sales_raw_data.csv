@@ -1,0 +1,160 @@
+Order_ID,Date,Category,Product,Qty,Unit_Price_INR,Revenue_INR,COGS_INR,Profit_INR,Salesperson,Region,Customer_Type
+ORD-1001,03/01/2024,Smartphones,Samsung Galaxy A55,1,32999,32999,25100,7899,Ravi Kumar,North,Repeat
+ORD-1002,05/01/2024,Laptops & PCs,HP Laptop 15s,1,54999,54999,42000,12999,Priya S.,South,New
+ORD-1003,07/01/2024,Audio & Wearables,Apple AirPods Pro,1,24900,24900,18500,6400,Arun T.,Central,Repeat
+ORD-1004,09/01/2024,Smart Home,Amazon Echo Dot,2,4999,9998,7600,2398,Kavitha M.,North,New
+ORD-1005,10/01/2024,Gaming,Sony PS5 Controller,1,5999,5999,4900,1099,Ravi Kumar,South,New
+ORD-1006,11/01/2024,Smartphones,Redmi Note 13,2,14999,29998,23600,6398,Priya S.,Outskirts,New
+ORD-1007,12/01/2024,Laptops & PCs,Dell Inspiron 15,1,61990,61990,48000,13990,Arun T.,South,Repeat
+ORD-1008,14/01/2024,Audio & Wearables,Sony WH-1000XM5,1,26990,26990,20500,6490,Kavitha M.,Central,Referral
+ORD-1009,15/01/2024,Smartphones,OnePlus Nord CE 4,1,24999,24999,19500,5499,Ravi Kumar,North,New
+ORD-1010,16/01/2024,Smart Home,Google Nest Mini,1,4499,4499,3500,999,Priya S.,South,Repeat
+ORD-1011,18/01/2024,Gaming,Logitech G502 Mouse,2,3999,7998,6600,1398,Arun T.,North,New
+ORD-1012,21/01/2024,Smartphones,Vivo V29,1,27999,27999,21900,6099,Ravi Kumar,Central,Repeat
+ORD-1013,23/01/2024,Laptops & PCs,Lenovo IdeaPad 3,1,42999,42999,33500,9499,Priya S.,North,New
+ORD-1014,25/01/2024,Smart Home,Philips Hue Bulb Set,2,3999,7998,6200,1798,Kavitha M.,Outskirts,New
+ORD-1015,28/01/2024,,Noise ColorFit Pro 4,1,3499,3499,2600,899,Arun T.,South,New
+ORD-1001,03/01/2024,Smartphones,Samsung Galaxy A55,1,32999,32999,25100,7899,Ravi Kumar,North,Repeat
+ORD-1016,02/02/2024,Smartphones,iPhone 15,1,79900,79900,63500,16400,Ravi Kumar,North,Referral
+ORD-1017,04/02/2024,Audio & Wearables,Boat Rockerz 550,3,2999,8997,6600,2397,Priya S.,South,New
+ORD-1018,06/02/2024,Gaming,Razer Kraken Headset,1,7499,7499,6200,1299,Arun T.,Central,New
+ORD-1019,08/02/2024,Smart Home,Mi Smart Plug,3,999,2997,2340,657,Kavitha M.,Outskirts,New
+ORD-1020,10/02/2024,Laptops & PCs,Asus VivoBook 15,1,38990,38990,31000,7990,Ravi Kumar,South,New
+ORD-1021,13/02/2024,Smartphones,Redmi Note 13,1,14999,14999,11800,3199,Priya S.,North,New
+ORD-1022,15/02/2024,Audio & Wearables,Samsung Galaxy Watch 6,1,28999,28999,22200,6799,Arun T.,South,Repeat
+ORD-1023,17/02/2024,Smartphones,OnePlus Nord CE 4,2,24999,49998,39000,10998,Kavitha M.,Central,Referral
+ORD-1024,19/02/2024,Gaming,Xbox Series Controller,1,5499,5499,4600,899,Ravi Kumar,North,New
+ORD-1025,21/02/2024,Laptops & PCs,HP Laptop 15s,1,54999,54999,42000,12999,Priya S.,Outskirts,New
+ORD-1026,24/02/2024,Smart Home,Ring Video Doorbell,1,8999,8999,7100,1899,Kavitha M.,South,Repeat
+ORD-1017,04/02/2024,Audio & Wearables,Boat Rockerz 550,3,2999,8997,6600,2397,Priya S.,South,New
+ORD-1027,02/03/2024,Smartphones,Samsung Galaxy A55,2,32999,65998,50200,15798,Ravi Kumar,North,Repeat
+ORD-1028,05/03/2024,Laptops & PCs,MacBook Air M1,1,92990,92990,74500,18490,Priya S.,South,Referral
+ORD-1029,07/03/2024,Audio & Wearables,Apple AirPods Pro,2,24900,49800,37000,12800,Arun T.,Central,Repeat
+ORD-1030,09/03/2024,Smartphones,Vivo V29,1,27999,27999,21900,6099,Kavitha M.,North,New
+ORD-1031,11/03/2024,Gaming,Nintendo Switch Lite,1,19999,19999,16700,3299,Ravi Kumar,South,New
+ORD-1032,13/03/2024,Smart Home,Amazon Echo Dot,3,4999,14997,11400,3597,Priya S.,Outskirts,New
+ORD-1033,15/03/2024,Laptops & PCs,Dell Inspiron 15,1,61990,61990,48000,13990,Arun T.,North,Repeat
+ORD-1034,03-17-2024,Smartphones,iPhone 15,1,79900,79900,63500,16400,Kavitha M.,South,Referral
+ORD-1035,19/03/2024,Audio & Wearables,Sony WH-1000XM5,1,26990,26990,20500,6490,Ravi Kumar,Central,Repeat
+ORD-1036,21/03/2024,Smart Home,Google Nest Mini,2,4499,8998,7000,1998,Priya S.,North,New
+ORD-1037,23/03/2024,Smartphones,Redmi Note 13,3,14999,44997,35400,9597,Arun T.,Outskirts,New
+ORD-1038,25/03/2024,Laptops & PCs,Lenovo IdeaPad 3,1,42999,42999,33500,9499,Kavitha M.,South,New
+ORD-1039,28/03/2024,,Samsung Galaxy Watch 6,2,28999,57998,44400,13598,Ravi Kumar,North,Repeat
+ORD-1040,30/03/2024,Gaming,Logitech G502 Mouse,1,3999,3999,3300,699,Priya S.,Central,New
+ORD-1041,03/04/2024,Smartphones,OnePlus Nord CE 4,1,24999,24999,19500,5499,Arun T.,South,New
+ORD-1042,05/04/2024,Audio & Wearables,Noise ColorFit Pro 4,4,3499,13996,10400,3596,Kavitha M.,Outskirts,New
+ORD-1043,08/04/2024,Laptops & PCs,Asus VivoBook 15,1,38990,38990,31000,7990,Ravi Kumar,North,Repeat
+ORD-1044,10/04/2024,Smartphones,Samsung Galaxy A55,1,32999,32999,25100,7899,Priya S.,South,Referral
+ORD-1045,12/04/2024,Smart Home,Philips Hue Bulb Set,1,3999,3999,3100,899,Arun T.,Central,New
+ORD-1046,15/04/2024,Gaming,Sony PS5 Controller,2,5999,11998,9800,2198,Kavitha M.,North,New
+ORD-1047,17/04/2024,Audio & Wearables,Apple AirPods Pro,1,24900,24900,18500,6400,Ravi Kumar,South,Repeat
+ORD-1048,19/04/2024,Laptops & PCs,HP Laptop 15s,1,54999,54999,42000,12999,Priya S.,Outskirts,New
+ORD-1049,22/04/2024,Smartphones,Vivo V29,2,27999,55998,43800,12198,Arun T.,North,New
+ORD-1050,24/04/2024,Smart Home,Amazon Echo Dot,1,4999,4999,3800,1199,Kavitha M.,South,New
+ORD-1051,26/04/2024,Audio & Wearables,Boat Rockerz 550,2,2999,5998,4400,1598,Ravi Kumar,Central,New
+ORD-1052,29/04/2024,Smartphones,Redmi Note 13,2,14999,29998,23600,6398,Priya S.,North,New
+ORD-1053,02/05/2024,Laptops & PCs,Dell Inspiron 15,1,61990,61990,48000,13990,Arun T.,South,Repeat
+ORD-1054,05/05/2024,Smartphones,iPhone 15,1,79900,79900,63500,16400,Kavitha M.,Central,Referral
+ORD-1055,07/05/2024,Gaming,Razer Kraken Headset,2,7499,14998,12400,2598,Ravi Kumar,North,New
+ORD-1056,09/05/2024,Smart Home,Ring Video Doorbell,1,8999,8999,7100,1899,Priya S.,Outskirts,Repeat
+ORD-1057,11/05/2024,Audio & Wearables,Samsung Galaxy Watch 6,1,28999,28999,22200,6799,Arun T.,South,New
+ORD-1058,14/05/2024,Smartphones,OnePlus Nord CE 4,1,24999,24999,19500,5499,Kavitha M.,North,New
+ORD-1059,16/05/2024,Laptops & PCs,Lenovo IdeaPad 3,1,42999,42999,33500,9499,Ravi Kumar,Central,New
+ORD-1060,18/05/2024,Smart Home,Mi Smart Plug,5,999,4995,3900,1095,Priya S.,South,New
+ORD-1061,21/05/2024,Audio & Wearables,Apple AirPods Pro,1,24900,24900,18500,6400,Arun T.,North,Repeat
+ORD-1062,23/05/2024,Smartphones,Samsung Galaxy A55,1,32999,32999,25100,7899,Kavitha M.,Outskirts,New
+ORD-1063,25/05/2024,Gaming,Nintendo Switch Lite,1,19999,19999,16700,3299,Ravi Kumar,South,New
+ORD-1064,28/05/2024,Laptops & PCs,Asus VivoBook 15,1,38990,38990,31000,7990,Priya S.,North,New
+ORD-1065,03/06/2024,Smartphones,Redmi Note 13,1,14999,14999,11800,3199,Arun T.,Central,New
+ORD-1066,05/06/2024,Audio & Wearables,Sony WH-1000XM5,1,26990,26990,20500,6490,Kavitha M.,South,New
+ORD-1067,08/06/2024,Smart Home,Google Nest Mini,1,4499,4499,3500,999,Ravi Kumar,North,Repeat
+ORD-1068,10/06/2024,Gaming,Logitech G502 Mouse,1,3999,3999,3300,699,Priya S.,Outskirts,New
+ORD-1069,12/06/2024,Smartphones,Vivo V29,1,27999,27999,21900,6099,Arun T.,South,New
+ORD-1070,06-14-2024,Laptops & PCs,HP Laptop 15s,1,54999,54999,42000,12999,Kavitha M.,Central,Repeat
+ORD-1071,17/06/2024,Audio & Wearables,Noise ColorFit Pro 4,3,3499,10497,7800,2697,Ravi Kumar,North,New
+ORD-1072,19/06/2024,Smart Home,Amazon Echo Dot,2,4999,9998,7600,2398,Priya S.,South,New
+ORD-1073,22/06/2024,Smartphones,OnePlus Nord CE 4,1,24999,24999,19500,5499,Arun T.,Outskirts,New
+ORD-1074,25/06/2024,Gaming,Sony PS5 Controller,1,5999,5999,4900,1099,Kavitha M.,North,New
+ORD-1074,25/06/2024,Gaming,Sony PS5 Controller,1,5999,5999,4900,1099,Kavitha M.,North,New
+ORD-1075,02/07/2024,Smartphones,Samsung Galaxy A55,2,32999,65998,50200,15798,Ravi Kumar,South,Repeat
+ORD-1076,04/07/2024,Laptops & PCs,Dell Inspiron 15,1,61990,61990,48000,13990,Priya S.,North,Referral
+ORD-1077,06/07/2024,Audio & Wearables,Apple AirPods Pro,1,24900,24900,18500,6400,Arun T.,Central,Repeat
+ORD-1078,09/07/2024,Smart Home,Ring Video Doorbell,1,8999,8999,7100,1899,Kavitha M.,South,New
+ORD-1079,11/07/2024,Smartphones,iPhone 15,1,79900,79900,63500,16400,Ravi Kumar,North,Referral
+ORD-1080,13/07/2024,Gaming,Razer Kraken Headset,1,7499,7499,6200,1299,Priya S.,Outskirts,New
+ORD-1081,15/07/2024,Audio & Wearables,Samsung Galaxy Watch 6,1,28999,28999,22200,6799,Arun T.,South,New
+ORD-1082,17/07/2024,Smartphones,Redmi Note 13,2,14999,29998,23600,6398,Kavitha M.,Central,New
+ORD-1083,20/07/2024,Laptops & PCs,Lenovo IdeaPad 3,1,42999,42999,33500,9499,Ravi Kumar,North,New
+ORD-1084,22/07/2024,Smart Home,Mi Smart Plug,4,999,3996,3120,876,Priya S.,South,New
+ORD-1085,24/07/2024,,Apple AirPods Pro,1,24900,24900,,, Arun T.,Outskirts,New
+ORD-1086,27/07/2024,Smartphones,Vivo V29,1,27999,27999,21900,6099,Kavitha M.,North,Repeat
+ORD-1087,03/08/2024,Smartphones,Samsung Galaxy A55,3,32999,98997,75300,23697,Ravi Kumar,South,Repeat
+ORD-1088,05/08/2024,Laptops & PCs,MacBook Air M1,1,92990,92990,74500,18490,Priya S.,North,Referral
+ORD-1089,07/08/2024,Audio & Wearables,Sony WH-1000XM5,2,26990,53980,41000,12980,Arun T.,Central,Repeat
+ORD-1090,08/08/2024,Gaming,Nintendo Switch Lite,2,19999,39998,33400,6598,Kavitha M.,South,New
+ORD-1091,10/08/2024,Smartphones,iPhone 15,2,79900,159800,127000,32800,Ravi Kumar,North,Referral
+ORD-1092,12/08/2024,Laptops & PCs,HP Laptop 15s,2,54999,109998,84000,25998,Priya S.,South,Repeat
+ORD-1093,13/08/2024,Smart Home,Amazon Echo Dot,3,4999,14997,11400,3597,Arun T.,Outskirts,New
+ORD-1094,15/08/2024,Smartphones,OnePlus Nord CE 4,2,24999,49998,39000,10998,Kavitha M.,Central,New
+ORD-1095,17/08/2024,Audio & Wearables,Apple AirPods Pro,2,24900,49800,37000,12800,Ravi Kumar,North,Repeat
+ORD-1096,19/08/2024,Gaming,Logitech G502 Mouse,3,3999,11997,9900,2097,Priya S.,South,New
+ORD-1097,21/08/2024,Laptops & PCs,Dell Inspiron 15,1,61990,61990,48000,13990,Arun T.,North,New
+ORD-1098,23/08/2024,Smartphones,Samsung Galaxy A55,1,32999,32999,25100,7899,Kavitha M.,Outskirts,New
+ORD-1099,26/08/2024,Smart Home,Ring Video Doorbell,2,8999,17998,14200,3798,Ravi Kumar,South,Repeat
+ORD-1100,28/08/2024,Audio & Wearables,Boat Rockerz 550,4,2999,11996,8800,3196,Priya S.,Central,New
+ORD-1101,03/09/2024,Smartphones,Vivo V29,2,27999,55998,43800,12198,Arun T.,North,New
+ORD-1102,05/09/2024,Laptops & PCs,Lenovo IdeaPad 3,1,42999,42999,33500,9499,Kavitha M.,South,Repeat
+ORD-1103,07/09/2024,Audio & Wearables,Samsung Galaxy Watch 6,1,28999,28999,22200,6799,Ravi Kumar,Central,New
+ORD-1104,09/09/2024,Gaming,Sony PS5 Controller,2,5999,11998,9800,2198,Priya S.,North,New
+ORD-1105,11/09/2024,Smartphones,iPhone 15,1,79900,79900,63500,16400,Arun T.,Outskirts,Referral
+ORD-1106,14/09/2024,Smart Home,Google Nest Mini,3,4499,13497,10500,2997,Kavitha M.,South,New
+ORD-1107,09-16-2024,Laptops & PCs,Asus VivoBook 15,1,38990,38990,31000,7990,Ravi Kumar,North,New
+ORD-1108,18/09/2024,Audio & Wearables,Apple AirPods Pro,1,24900,24900,18500,6400,Priya S.,Central,Repeat
+ORD-1109,21/09/2024,Smartphones,Redmi Note 13,3,14999,44997,35400,9597,Arun T.,South,New
+ORD-1110,24/09/2024,Gaming,Razer Kraken Headset,1,7499,7499,6200,1299,Kavitha M.,Outskirts,New
+ORD-1111,26/09/2024,Smart Home,Amazon Echo Dot,2,4999,9998,7600,2398,Ravi Kumar,North,New
+ORD-1112,28/09/2024,Smartphones,OnePlus Nord CE 4,1,24999,24999,19500,5499,Priya S.,South,Repeat
+ORD-1113,02/10/2024,Smartphones,Samsung Galaxy A55,3,32999,98997,75300,23697,Arun T.,Central,Repeat
+ORD-1114,04/10/2024,Laptops & PCs,MacBook Air M1,1,92990,92990,74500,18490,Kavitha M.,North,Referral
+ORD-1115,05/10/2024,Audio & Wearables,Sony WH-1000XM5,2,26990,53980,41000,12980,Ravi Kumar,South,New
+ORD-1116,07/10/2024,Smartphones,iPhone 15,2,79900,159800,127000,32800,Priya S.,North,Referral
+ORD-1117,09/10/2024,Gaming,Nintendo Switch Lite,3,19999,59997,50100,9897,Arun T.,Central,New
+ORD-1118,11/10/2024,Smart Home,Ring Video Doorbell,2,8999,17998,14200,3798,Kavitha M.,South,New
+ORD-1119,12/10/2024,Audio & Wearables,Apple AirPods Pro,2,24900,49800,37000,12800,Ravi Kumar,Outskirts,Repeat
+ORD-1120,14/10/2024,Smartphones,Samsung Galaxy A55,2,32999,65998,50200,15798,Priya S.,North,Repeat
+ORD-1121,16/10/2024,Laptops & PCs,HP Laptop 15s,2,54999,109998,84000,25998,Arun T.,South,New
+ORD-1122,18/10/2024,Gaming,Logitech G502 Mouse,4,3999,15996,13200,2796,Kavitha M.,Central,New
+ORD-1123,20/10/2024,Smartphones,Vivo V29,2,27999,55998,43800,12198,Ravi Kumar,North,New
+ORD-1124,22/10/2024,Audio & Wearables,Samsung Galaxy Watch 6,2,28999,57998,44400,13598,Priya S.,South,Repeat
+ORD-1125,24/10/2024,Laptops & PCs,Dell Inspiron 15,1,61990,61990,48000,13990,Arun T.,Outskirts,New
+ORD-1126,26/10/2024,Smart Home,Amazon Echo Dot,4,4999,19996,15200,4796,Kavitha M.,North,New
+ORD-1127,28/10/2024,Smartphones,Redmi Note 13,4,14999,59996,47200,12796,Ravi Kumar,South,New
+ORD-1128,30/10/2024,Audio & Wearables,Boat Rockerz 550,5,2999,14995,11000,3995,Priya S.,Central,New
+ORD-1116,07/10/2024,Smartphones,iPhone 15,2,79900,159800,127000,32800,Priya S.,North,Referral
+ORD-1129,02/11/2024,Smartphones,iPhone 15,2,79900,159800,127000,32800,Arun T.,North,Referral
+ORD-1130,04/11/2024,Laptops & PCs,MacBook Air M1,1,92990,92990,74500,18490,Kavitha M.,South,Referral
+ORD-1131,06/11/2024,Audio & Wearables,Apple AirPods Pro,3,24900,74700,55500,19200,Ravi Kumar,Central,Repeat
+ORD-1132,08/11/2024,Smart Home,Ring Video Doorbell,1,8999,8999,7100,1899,Priya S.,North,New
+ORD-1133,10/11/2024,Smartphones,Samsung Galaxy A55,3,32999,98997,75300,23697,Arun T.,Outskirts,Repeat
+ORD-1134,12/11/2024,Gaming,Sony PS5 Controller,2,5999,11998,9800,2198,Kavitha M.,South,New
+ORD-1135,14/11/2024,Laptops & PCs,Lenovo IdeaPad 3,2,42999,85998,67000,18998,Ravi Kumar,North,New
+ORD-1136,16/11/2024,Audio & Wearables,Sony WH-1000XM5,1,26990,26990,20500,6490,Priya S.,Central,Repeat
+ORD-1137,18/11/2024,Smartphones,OnePlus Nord CE 4,2,24999,49998,39000,10998,Arun T.,South,New
+ORD-1138,20/11/2024,Gaming,Razer Kraken Headset,2,7499,14998,12400,2598,Kavitha M.,North,New
+ORD-1139,22/11/2024,Smart Home,Mi Smart Plug,6,999,5994,4680,1314,Ravi Kumar,Outskirts,New
+ORD-1140,25/11/2024,Smartphones,Vivo V29,2,27999,55998,43800,12198,Priya S.,South,Repeat
+ORD-1141,27/11/2024,Laptops & PCs,Asus VivoBook 15,1,38990,38990,31000,7990,Arun T.,Central,New
+ORD-1142,29/11/2024,Audio & Wearables,Samsung Galaxy Watch 6,1,28999,28999,22200,6799,Kavitha M.,North,New
+ORD-1143,03/12/2024,Smartphones,Samsung Galaxy A55,2,32999,65998,50200,15798,Ravi Kumar,South,Repeat
+ORD-1144,05/12/2024,Laptops & PCs,HP Laptop 15s,1,54999,54999,42000,12999,Priya S.,North,New
+ORD-1145,07/12/2024,Gaming,Nintendo Switch Lite,1,19999,19999,16700,3299,Arun T.,Central,New
+ORD-1146,09/12/2024,Audio & Wearables,Apple AirPods Pro,1,24900,24900,18500,6400,Kavitha M.,South,Repeat
+ORD-1147,11/12/2024,Smart Home,Amazon Echo Dot,2,4999,9998,7600,2398,Ravi Kumar,Outskirts,New
+ORD-1148,14/12/2024,Smartphones,Redmi Note 13,2,14999,29998,23600,6398,Priya S.,North,New
+ORD-1149,16/12/2024,Laptops & PCs,Dell Inspiron 15,1,61990,61990,48000,13990,Arun T.,South,Repeat
+ORD-1150,18/12/2024,Audio & Wearables,Boat Rockerz 550,3,2999,8997,6600,2397,Kavitha M.,Central,New
+ORD-1151,20/12/2024,Smartphones,OnePlus Nord CE 4,1,24999,24999,19500,5499,Ravi Kumar,North,New
+ORD-1152,22/12/2024,Gaming,Sony PS5 Controller,-1,5999,-5999,-4900,-1099,Priya S.,South,New
+ORD-1153,24/12/2024,Smart Home,Ring Video Doorbell,1,8999,8999,7100,1899,Arun T.,Outskirts,New
+ORD-1154,27/12/2024,Audio & Wearables,Sony WH-1000XM5,1,26990,26990,20500,6490,Kavitha M.,North,Repeat
+ORD-1155,29/12/2024,Smartphones,iPhone 15,1,79900,79900,63500,16400,Ravi Kumar,South,Referral
