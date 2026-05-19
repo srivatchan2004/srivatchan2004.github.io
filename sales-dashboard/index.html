@@ -112,7 +112,7 @@
 <header>
   <div class="header-left">
     <h1>&#128200; <span>Sales Performance Dashboard</span></h1>
-    <p>NovaTech Solutions Pvt. Ltd. &nbsp;|&nbsp; Chennai &nbsp;|&nbsp; Jan – Dec 2024 &nbsp;|&nbsp; 25-Member Team</p>
+    <p>TechVista Electronics Pvt. Ltd. &nbsp;|&nbsp; Chennai &nbsp;|&nbsp; Jan – Dec 2024 &nbsp;|&nbsp; 25-Member Team</p>
   </div>
   <div class="header-right">
     <span class="live-badge">Live Analysis</span>
@@ -178,8 +178,8 @@
       <div class="chart-wrap"><canvas id="revProfitChart" height="100"></canvas></div>
     </div>
     <div class="chart-card">
-      <h3>Revenue by Category</h3>
-      <p class="chart-sub">FY 2024 — Electronics leads at 35%</p>
+      <h3>Revenue by Device Category</h3>
+      <p class="chart-sub">FY 2024 — Smartphones lead at 38%</p>
       <div class="chart-wrap"><canvas id="categoryChart" height="180"></canvas></div>
     </div>
   </div>
@@ -187,8 +187,8 @@
   <!-- CHARTS ROW 2 -->
   <div class="charts-row charts-2equal">
     <div class="chart-card">
-      <h3>Category Profit Margin</h3>
-      <p class="chart-sub">Sports has lowest margin; Electronics highest</p>
+      <h3>Device Category Profit Margin</h3>
+      <p class="chart-sub">Gaming has lowest margin; Audio & Wearables highest</p>
       <div class="chart-wrap"><canvas id="marginChart" height="160"></canvas></div>
     </div>
     <div class="chart-card">
@@ -247,7 +247,7 @@
       <h4><span style="color:var(--green)">&#9650;</span> Growth Opportunities</h4>
       <ul class="insight-list">
         <li>October (Diwali) generated ₹5.21L — 27.4% margin. Replicate festive strategies in Q1.</li>
-        <li>Electronics drives 35% revenue and 40% profit — highest ROI category. Expand SKUs.</li>
+        <li>Smartphones drive 38% revenue and 42% profit — highest ROI category. Expand SKUs.</li>
         <li>Top 3 products (Galaxy A55, AirPods Pro, HP Laptop) = 30% of total revenue. Stock heavily.</li>
         <li>Repeat customers (58%) contribute 71% of revenue — loyalty programme investment advised.</li>
       </ul>
@@ -256,7 +256,7 @@
       <h4><span style="color:var(--red)">&#9660;</span> Problem Areas</h4>
       <ul class="insight-list">
         <li>June recorded a ₹-0.28L loss — COGS spiked 10% while demand dropped. Review supplier pricing.</li>
-        <li>Sports category margin is only 8.3% — below company avg of 23.9%. Consider pricing revision.</li>
+        <li>Gaming category margin is only 17.2% — below company avg of 21.8%. Consider pricing revision.</li>
         <li>Arun T. is 12% below sales target — needs coaching or territory reassignment.</li>
         <li>Chennai Outskirts region contributes only 15% despite 28% of population base — low penetration.</li>
       </ul>
@@ -265,7 +265,7 @@
       <h4><span style="color:var(--accent)">&#128161;</span> Strategic Recommendations</h4>
       <ul class="insight-list">
         <li>Launch a Q2 promotion campaign in May–June to offset the consistent mid-year dip.</li>
-        <li>Increase Electronics &amp; Beauty bundle offers — both categories have high margins (24%+).</li>
+        <li>Bundle Smartphones with Audio &amp; Wearables — both categories have high margins (22%+).</li>
         <li>Target Chennai Outskirts with hyper-local digital marketing — untapped 15% addressable market.</li>
         <li>Introduce referral incentives for repeat customers to accelerate new customer acquisition.</li>
       </ul>
@@ -291,16 +291,16 @@
           <tr><th>Order ID</th><th>Date</th><th>Category</th><th>Product</th><th>Qty</th><th>Unit Price</th><th>Revenue</th><th>COGS</th><th>Profit</th><th>Region</th></tr>
         </thead>
         <tbody>
-          <tr><td>ORD-1041</td><td>03/01/2024</td><td>Electronics</td><td>Samsung Galaxy A55</td><td>1</td><td>₹32,999</td><td>₹32,999</td><td>₹25,100</td><td>₹7,899</td><td>North</td></tr>
-          <tr><td>ORD-1042</td><td>05/01/2024</td><td class="messy">N/A</td><td>Levi's Jeans 511</td><td>2</td><td>₹2,499</td><td>₹4,998</td><td>₹3,200</td><td>₹1,798</td><td>South</td></tr>
-          <tr><td class="messy">ORD-1041</td><td>03/01/2024</td><td>Electronics</td><td>Samsung Galaxy A55</td><td class="messy">1</td><td>₹32,999</td><td>₹32,999</td><td>₹25,100</td><td>₹7,899</td><td class="messy">North ← DUPLICATE</td></tr>
-          <tr><td>ORD-1043</td><td class="messy">01-07-2024</td><td>Home &amp; Kitchen</td><td>Prestige Pressure Cooker</td><td>1</td><td>₹2,899</td><td>₹2,899</td><td class="messy">—</td><td class="messy">?</td><td>Central</td></tr>
-          <tr><td>ORD-1044</td><td>09/01/2024</td><td>Beauty</td><td>Mamaearth Vitamin C Serum</td><td>3</td><td>₹699</td><td>₹2,097</td><td>₹1,400</td><td>₹697</td><td>South</td></tr>
-          <tr><td>ORD-1045</td><td>11/01/2024</td><td>Sports</td><td>SG Cricket Bat</td><td class="messy">-1</td><td>₹3,200</td><td class="messy">₹-3,200</td><td class="messy">₹-2,400</td><td class="messy">₹-800</td><td class="messy">← RETURN, EXCLUDED</td></tr>
-          <tr><td>ORD-1046</td><td>14/01/2024</td><td>Electronics</td><td>Apple AirPods Pro</td><td>1</td><td>₹24,900</td><td>₹24,900</td><td>₹18,500</td><td>₹6,400</td><td>North</td></tr>
-          <tr><td>ORD-1047</td><td>16/01/2024</td><td>Clothing</td><td>Saree Collection (Set of 3)</td><td>1</td><td>₹4,500</td><td>₹4,500</td><td>₹2,900</td><td>₹1,600</td><td>South</td></tr>
-          <tr><td>ORD-1048</td><td class="messy">01/18/2024</td><td>Electronics</td><td>HP Laptop 15s</td><td>1</td><td>₹54,999</td><td>₹54,999</td><td>₹42,000</td><td>₹12,999</td><td>Central</td></tr>
-          <tr><td>ORD-1049</td><td>20/01/2024</td><td>Home &amp; Kitchen</td><td>Havells Stand Fan</td><td>2</td><td>₹3,200</td><td>₹6,400</td><td>₹4,800</td><td>₹1,600</td><td>North</td></tr>
+          <tr><td>ORD-1041</td><td>03/01/2024</td><td>Smartphones</td><td>Samsung Galaxy A55</td><td>1</td><td>₹32,999</td><td>₹32,999</td><td>₹25,100</td><td>₹7,899</td><td>North</td></tr>
+          <tr><td>ORD-1042</td><td>05/01/2024</td><td class="messy">N/A</td><td>Lenovo IdeaPad 3</td><td>1</td><td>₹42,999</td><td>₹42,999</td><td class="messy">—</td><td class="messy">?</td><td>South</td></tr>
+          <tr><td class="messy">ORD-1041</td><td>03/01/2024</td><td>Smartphones</td><td>Samsung Galaxy A55</td><td class="messy">1</td><td>₹32,999</td><td>₹32,999</td><td>₹25,100</td><td>₹7,899</td><td class="messy">North ← DUPLICATE</td></tr>
+          <tr><td>ORD-1043</td><td class="messy">01-07-2024</td><td>Laptops &amp; PCs</td><td>HP Laptop 15s</td><td>1</td><td>₹54,999</td><td>₹54,999</td><td>₹42,000</td><td>₹12,999</td><td>Central</td></tr>
+          <tr><td>ORD-1044</td><td>09/01/2024</td><td>Audio &amp; Wearables</td><td>Apple AirPods Pro</td><td>1</td><td>₹24,900</td><td>₹24,900</td><td>₹18,500</td><td>₹6,400</td><td>South</td></tr>
+          <tr><td>ORD-1045</td><td>11/01/2024</td><td>Gaming</td><td>Sony PS5 Controller</td><td class="messy">-1</td><td>₹5,999</td><td class="messy">₹-5,999</td><td class="messy">₹-4,600</td><td class="messy">₹-1,399</td><td class="messy">← RETURN, EXCLUDED</td></tr>
+          <tr><td>ORD-1046</td><td>14/01/2024</td><td>Smart Home</td><td>Amazon Echo Dot (5th Gen)</td><td>2</td><td>₹4,999</td><td>₹9,998</td><td>₹7,800</td><td>₹2,198</td><td>North</td></tr>
+          <tr><td>ORD-1047</td><td class="messy">01/16/2024</td><td>Smartphones</td><td>OnePlus Nord CE 4</td><td>1</td><td>₹24,999</td><td>₹24,999</td><td>₹19,500</td><td>₹5,499</td><td>South</td></tr>
+          <tr><td>ORD-1048</td><td class="messy">01/18/2024</td><td>Laptops &amp; PCs</td><td>Dell Inspiron 15</td><td>1</td><td>₹61,990</td><td>₹61,990</td><td>₹48,000</td><td>₹13,990</td><td>Central</td></tr>
+          <tr><td>ORD-1049</td><td>20/01/2024</td><td>Audio &amp; Wearables</td><td>Sony WH-1000XM5</td><td>1</td><td>₹26,990</td><td>₹26,990</td><td>₹20,500</td><td>₹6,490</td><td>North</td></tr>
         </tbody>
       </table>
     </div>
@@ -368,8 +368,8 @@
   new Chart(document.getElementById('categoryChart'),{
     type:'doughnut',
     data:{
-      labels:['Electronics','Clothing','Home & Kitchen','Beauty','Sports'],
-      datasets:[{ data:[35,25,20,12,8], backgroundColor:['#58a6ff','#bc8cff','#3fb950','#ffa657','#79c0ff'], borderColor:'#161b22', borderWidth:3, hoverOffset:8 }]
+      labels:['Smartphones','Laptops & PCs','Audio & Wearables','Smart Home','Gaming'],
+      datasets:[{ data:[38,28,18,10,6], backgroundColor:['#58a6ff','#bc8cff','#3fb950','#ffa657','#79c0ff'], borderColor:'#161b22', borderWidth:3, hoverOffset:8 }]
     },
     options:{
       responsive:true, cutout:'65%',
@@ -381,8 +381,8 @@
   new Chart(document.getElementById('marginChart'),{
     type:'bar',
     data:{
-      labels:['Electronics','Beauty','Clothing','Home & Kitchen','Sports'],
-      datasets:[{ label:'Profit Margin %', data:[24.1,20.4,18.6,20.9,8.3], backgroundColor:['#58a6ff','#ffa657','#bc8cff','#3fb950','#f85149'], borderRadius:6 }]
+      labels:['Audio & Wearables','Smartphones','Smart Home','Laptops & PCs','Gaming'],
+      datasets:[{ label:'Profit Margin %', data:[24.1,22.4,21.3,19.8,17.2], backgroundColor:['#58a6ff','#ffa657','#bc8cff','#3fb950','#f85149'], borderRadius:6 }]
     },
     options:{
       indexAxis:'y', responsive:true,
@@ -395,8 +395,8 @@
   new Chart(document.getElementById('topProductsChart'),{
     type:'bar',
     data:{
-      labels:['Samsung Galaxy A55','Apple AirPods Pro','HP Laptop 15s','Saree Collection','Prestige Cooker'],
-      datasets:[{ label:'Revenue (₹L)', data:[3.21,2.09,1.82,1.44,0.91], backgroundColor:'rgba(188,140,255,0.7)', borderColor:'#bc8cff', borderWidth:1, borderRadius:5 }]
+      labels:['Samsung Galaxy A55','HP Laptop 15s','Apple AirPods Pro','Lenovo IdeaPad 3','Sony WH-1000XM5'],
+      datasets:[{ label:'Revenue (₹L)', data:[3.84,2.91,2.09,1.93,1.42], backgroundColor:'rgba(188,140,255,0.7)', borderColor:'#bc8cff', borderWidth:1, borderRadius:5 }]
     },
     options:{
       indexAxis:'y', responsive:true,
